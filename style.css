@@ -1,0 +1,241 @@
+* { box-sizing: border-box; }
+body {
+    background-color: #d1c8e1; /* Fondo morado claro exterior */
+    font-family: 'Press Start 2P', cursive;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 10px;
+}
+
+/* La "Consola" / Marco exterior */
+.retro-console {
+	position: relative;
+    background-color: #f3efe6; 
+    padding: 15px;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 420px;
+    border: 6px solid #4b3b5e; /* Morado oscuro */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+/* La pantalla interior con patrón de puntos */
+.retro-screen {
+    background-color: #f3efe6;
+    background-image: radial-gradient(#d1c8e1 20%, transparent 20%);
+    background-size: 8px 8px; /* Efecto punteado retro */
+    border: 4px dashed #4b3b5e;
+    padding: 15px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+	overflow: visible;
+    position: relative;
+}
+
+/* HUD Superior */
+.top-hud {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.7rem;
+    color: #4b3b5e;
+    border-bottom: 4px dotted #4b3b5e;
+    padding-bottom: 10px;
+    align-items: center;
+}
+
+.top-hud i {
+    color: #d589a8; /* Corazón rosa en el nivel */
+}
+
+/* Contenedor de la foto principal */
+.image-container {
+    border: 4px solid #4b3b5e; 
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #d1c8e1; /* Un color morado clarito para los espacios que sobren a los lados */
+    
+    width: 100%;
+    height: 300px; /* ALTO FIJO: El recuadro ya no crecerá más que esto */
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-container img {
+    width: 100%;
+    height: 100%; 
+    object-fit: contain; 
+    
+    /* Esta propiedad estira la imagen a lo ancho. 
+       1.0 es el tamaño normal. 
+       1.2 la estira un 20% más a lo ancho. */
+    transform: scaleX(1.2); 
+}
+
+/* Caja de diálogo */
+.dialogue-box {
+    background-color: #fbebf0; /* Fondo rosita claro */
+    border: 4px solid #d589a8; /* Borde rosa */
+    border-radius: 10px;
+    padding: 15px;
+    color: #4b3b5e;
+    min-height: 80px;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dialogue-content {
+    flex-grow: 1;
+}
+
+.dialogue-title {
+    font-size: 0.7rem;
+    margin: 0 0 10px 0;
+    color: #4b3b5e;
+}
+
+.dialogue-text {
+    font-size: 0.65rem;
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* Icono sonriente en la caja de diálogo */
+.smiley-icon {
+    font-size: 1.5rem;
+    color: #4b3b5e;
+}
+
+/* Spotify Wrapper */
+.spotify-wrapper {
+    width: 100%;
+    border: 4px solid #4b3b5e;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #fff;
+}
+
+/* Botón Mágico */
+.retro-btn {
+    background-color: #d589a8;
+    color: #fff;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.65rem;
+    padding: 15px 10px;
+    border: 4px solid #4b3b5e;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 4px 4px 0px #4b3b5e;
+    transition: all 0.1s;
+    text-align: center;
+    text-shadow: 1px 1px 0px rgba(0,0,0,0.2);
+}
+
+.retro-btn:active {
+    box-shadow: 0px 0px 0px #4b3b5e;
+    transform: translate(4px, 4px);
+    background-color: #c27694;
+}
+
+/* Navegación Inferior */
+.bottom-nav {
+    display: flex;
+    justify-content: space-around;
+    font-size: 0.5rem;
+    color: #4b3b5e;
+    text-align: center;
+    margin-top: 5px;
+}
+
+.bottom-nav > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.nav-icon {
+    background-color: #aeb4d1; /* Fondo azulado de los iconos */
+    border: 2px solid #4b3b5e;
+    border-radius: 8px;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+}
+
+.nav-icon.pink { background-color: #e59bb6; }
+.nav-icon.green { background-color: #a4c9b9; }
+.nav-icon.purple { background-color: #b39bd4; }
+.nav-icon.blue { background-color: #9cbce5; }
+
+/* =========================================
+   SISTEMA DE DECORACIONES (SPRITES)
+========================================= */
+/* Ocultar todas las decoraciones por defecto */
+.decoracion {
+    display: none;
+    position: absolute;
+    z-index: 10;
+    filter: drop-shadow(2px 2px 0px rgba(0,0,0,0.5));
+}
+
+/* Posiciones de los Gatos */
+.decor-gato-1 { top: -30px; left: -10px; width: 80px; }
+.decor-gato-2 { bottom: -10px; right: -10px; width: 65px; transform: rotate(-20deg); }
+
+/* Posiciones Friki/Anime */
+.decor-friki-1 { top: -30px; left: -10px; width: 80px; } 
+.decor-friki-2 { bottom: -10px; right: -10px; width: 85px; }
+
+/* Posiciones Perros */
+.decor-perro-1 { top: -25px; left: 40%; width: 65px; }
+.decor-perro-2 { bottom: -15px; left: 10px; width: 50px; transform: rotate(15deg); }
+
+/* Mostrar solo las decoraciones del tema activo */
+body.tema-gatos .decor-gato-1, body.tema-gatos .decor-gato-2 { display: block; }
+body.tema-friki .decor-friki-1, body.tema-friki .decor-friki-2 { display: block; }
+body.tema-perros .decor-perro-1, body.tema-perros .decor-perro-2 { display: block; }
+
+
+/* =========================================
+   PALETAS DE COLORES (TEMAS DINÁMICOS)
+========================================= */
+
+/* 🐾 TEMA GATOS (Tonos Naranja Pastel) */
+body.tema-gatos .retro-console { background-color: #ffbba6; border-color: #ff7e54; }
+body.tema-gatos .retro-screen { background-color: #fffdf9; border-color: #ff7e54; color: #4a4a4a;}
+body.tema-gatos .dialogue-box { background-color: #ffe6de; border-color: #ff7e54; color: #a64221; }
+body.tema-gatos .dialogue-title { color: #e65c2e; }
+body.tema-gatos .retro-btn { background-color: #ff7e54; border-color: #4a4a4a;}
+body.tema-gatos .bottom-nav { color: #ff7e54; }
+body.tema-gatos .top-hud { border-bottom: 3px dotted #ff7e54; }
+
+/* ⚔️ TEMA FRIKI / ANIME (Colores claros y legibles: Azul, Blanco y Rojo) */
+body.tema-friki .retro-console { background-color: #5352ed; border-color: #3742fa; }
+body.tema-friki .retro-screen { background-color: #f1f2f6; border-color: #ff4757; color: #2f3542; }
+body.tema-friki .dialogue-box { background-color: #ffffff; border-color: #ff4757; color: #2f3542; box-shadow: inset 2px 2px 0px rgba(0,0,0,0.1); }
+body.tema-friki .dialogue-title { color: #ff4757; }
+body.tema-friki .retro-btn { background-color: #ff4757; color: #ffffff; border-color: #2f3542; box-shadow: 4px 4px 0px #2f3542; }
+body.tema-friki .retro-btn:active { box-shadow: 0px 0px 0px #2f3542; background-color: #ff6b81; }
+body.tema-friki .bottom-nav { color: #5352ed; }
+body.tema-friki .top-hud { color: #2f3542; border-bottom: 3px dotted #5352ed; }
+
+/* 🐶 TEMA PERROS (Tonos Verde Menta y Azul) */
+body.tema-perros .retro-console { background-color: #7bed9f; border-color: #2ed573; }
+body.tema-perros .retro-screen { background-color: #f1f2f6; border-color: #1e90ff; color: #2f3542; }
+body.tema-perros .dialogue-box { background-color: #ffffff; border-color: #1e90ff; color: #2f3542; }
+body.tema-perros .dialogue-title { color: #1e90ff; }
+body.tema-perros .retro-btn { background-color: #1e90ff; color: white; border-color: #2f3542; }
+body.tema-perros .bottom-nav { color: #2ed573; }
+body.tema-perros .top-hud { color: #2f3542; border-bottom: 3px dotted #2ed573; }

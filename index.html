@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuestra Historia Retro</title>
+    <link rel="stylesheet" href="style.css?v=2">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="retro-console">
+	
+	<!-- ========================================== -->
+        <!-- SISTEMA DE DECORACIONES INTELIGENTES       -->
+        <!-- ========================================== -->
+        
+        <!-- Decoraciones Gatos -->
+        <img src="https://elvssfovlidfpqzbiciq.supabase.co/storage/v1/object/public/pixel_anima/gato22.png" class="decoracion decor-gato-1" alt="gato">
+        <img src="https://elvssfovlidfpqzbiciq.supabase.co/storage/v1/object/public/pixel_anima/gato11.png" class="decoracion decor-gato-2" alt="huella">
+        
+        <!-- Decoraciones Friki / Anime -->
+        <img src="https://elvssfovlidfpqzbiciq.supabase.co/storage/v1/object/public/pixel_anima/anime11.png" class="decoracion decor-friki-1" alt="mario">
+        <img src="https://elvssfovlidfpqzbiciq.supabase.co/storage/v1/object/public/pixel_anima/anime22.png" class="decoracion decor-friki-2" alt="esfera">
+
+        <!-- Decoraciones Perros -->
+        <img src="https://img.icons8.com/fluency/96/dog.png" class="decoracion decor-perro-1" alt="perro">
+        <img src="https://img.icons8.com/color/96/bone.png" class="decoracion decor-perro-2" alt="hueso">
+
+        <!-- ========================================== -->
+        <div class="retro-screen">
+            
+            <!-- Barra superior estilo Gameboy -->
+            <div class="top-hud">
+                <span><i class="fas fa-heart"></i> L.V. 07</span>
+                <span id="hud-date">05/23</span>
+                <span id="hud-time">06:30 PM</span>
+                <span><i class="fas fa-battery-full" style="font-size: 1.2rem; color: #a4c9b9;"></i></span>
+            </div>
+            
+            <!-- Contenedor de la foto -->
+<div class="image-container">
+    <img src="foto_pareja.jpg" id="imagen-pareja" alt="Nuestra Foto">
+</div>
+
+            <!-- Caja de diálogo retro con carita sonriente -->
+            <div class="dialogue-box">
+                <div class="dialogue-content">
+                    <p id="titulo-pareja" class="dialogue-title">GOOD DAY TOGETHER! ♡</p>
+                    <p id="contador-dias" class="dialogue-text">MEMORIES LOADING...</p>
+                </div>
+                <i class="far fa-smile smiley-icon"></i>
+            </div>
+
+            <!-- Reproductor de Spotify -->
+            <div id="spotify-container" class="spotify-wrapper"></div>
+
+            <!-- Botón Mágico -->
+            <button id="btn-extrano" class="retro-btn">
+                <i class="fas fa-heart"></i> PRESIONA SI ME EXTRAÑAS <i class="fas fa-heart"></i>
+            </button>
+
+            <!-- Menú inferior decorativo con recuadros -->
+            <div class="bottom-nav">
+                <div><div class="nav-icon pink"><i class="fas fa-heart"></i></div>STATUS</div>
+                <div><div class="nav-icon green"><i class="fas fa-utensils"></i></div>FEED</div>
+                <div><div class="nav-icon purple"><i class="fas fa-gamepad"></i></div>PLAY</div>
+                <div><div class="nav-icon blue"><i class="fas fa-book"></i></div>INFO</div>
+            </div>
+        </div>
+    </div>
+    <script src="app.js?v=2"></script>
+</body>
+</html>
