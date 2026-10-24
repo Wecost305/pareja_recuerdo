@@ -51,17 +51,37 @@ document.addEventListener('DOMContentLoaded', () => {
                     document.getElementById('contador-dias').innerText = `¡UN GRAN DIA JUNTOS! <3\nLLEVAMOS ${diasJuntos} DIAS.`;
                 }
 
-                // 3. REPRODUCTOR DE SPOTIFY
-                if (pareja.id_spotify) {
-                    const spotifyContainer = document.getElementById('spotify-container');
-                    spotifyContainer.innerHTML = `
-                        <iframe style="border-radius:8px" 
-                        src="https://open.spotify.com/embed/track/${pareja.id_spotify}?utm_source=generator&theme=0" 
-                        width="100%" height="152" frameBorder="0" allowfullscreen="" 
-                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy">
-                        </iframe>
-                    `;
-                }
+// 3. REPRODUCTOR DE AUDIO NATIVO
+if (pareja.url_audio) {
+    // Inyectar datos desde Supabase
+    document.getElementById('titulo-cancion').innerText = pareja.titulo_cancion || 'Canción Especial';
+    document.getElementById('artista-cancion').innerText = pareja.artista || 'Para ti';
+    
+    if (pareja.portada_cancion) {
+        document.getElementById('cover-cancion').src = pareja.portada_cancion;
+    }
+    
+    const audio = document.getElementById('audio-nativo');
+    audio.src = pareja.url_audio;
+
+    // Lógica del botón Play/Pause
+    const btnPlay = document.getElementById('btn-play');
+    btnPlay.addEventListener('click', () => {
+        if (audio.paused) {
+            audio.play();
+            // Cambiamos el icono a pausa usando FontAwesome
+            btnPlay.innerHTML = '<i class="fas fa-pause"></i>'; 
+        } else {
+            audio.pause();
+            // Cambiamos el icono de vuelta a play
+            btnPlay.innerHTML = '<i class="fas fa-play"></i>';
+        }
+    });
+} else {
+    // Si no hay canción configurada, ocultamos el reproductor
+    document.getElementById('spotify-container').style.display = 'none';
+}
+				
 
                 // 4. CONECTAR EL BOTÓN A NTFY
                 const btnNotificacion = document.getElementById('btn-extrano'); 
