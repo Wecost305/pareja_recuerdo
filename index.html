@@ -52,8 +52,20 @@
                 <i class="far fa-smile smiley-icon"></i>
             </div>
 
-            <!-- Reproductor de Spotify -->
-            <div id="spotify-container" class="spotify-wrapper"></div>
+<!-- Reproductor Nativo Estilo Retro -->
+<div id="spotify-container" class="spotify-wrapper reproductor-retro">
+    <img id="cover-cancion" src="" alt="Portada">
+    
+    <div class="info-cancion">
+        <h3 id="titulo-cancion">Cargando...</h3>
+        <p id="artista-cancion">Cargando...</p>
+    </div>
+    
+    <div class="controles-audio">
+        <audio id="audio-nativo" src="" preload="auto"></audio>
+        <button id="btn-play" class="retro-play-btn"><i class="fas fa-play"></i></button>
+    </div>
+</div>
 
             <!-- Botón Mágico -->
             <button id="btn-extrano" class="retro-btn">
